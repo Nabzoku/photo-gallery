@@ -1,0 +1,120 @@
+body {
+  display: block;
+  font-family: 'Bruno Ace SC', cursive;
+  width: 65%;
+  margin: 1.5rem auto 0 auto;
+}
+nav {
+  font-size: 1.5rem;
+  color: darkslategray;
+  margin-bottom: 1em;
+}
+hr {
+  border: 1px solid darkslategray;
+  opacity: 0.4;
+  margin-bottom: 2rem;
+}
+nav span {
+  font-size: 2em;
+  position: relative;
+  top: 0.2em;
+}
+a {
+  cursor: pointer;
+}
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+  gap: 3rem;
+}
+
+.arrow-btn {
+  display: inline-block;
+  color: inherit;
+  opacity: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-style: solid;
+  border-color: #eee;
+  border-width: 0.2rem 0.2rem 0 0;
+  transition: opacity 0.2s;
+}
+.previous {
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.next {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.arrow-btn:hover {
+  opacity: 0.3;
+}
+.focused-img {
+  background-image: url('http://c2.staticflickr.com/8/7579/15482110477_0b0e9e5421_b.jpg');
+  background-size: cover;
+  max-width: 75%;
+  max-height: 75%;
+  background-color: red;
+  border-radius: 0.25rem;
+}
+
+/* Overlay and focused image when clicked */
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin: 1.5rem auto 3rem auto;
+}
+.gallery-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+@media (max-width: 750px) {
+  .focused-img {
+    max-width: 70%;
+  }
+  body {
+    width: 75%;
+  }
+  .gallery-container {
+    gap: 3rem;
+  }
+}
+@media (max-width: 500px) {
+  .gallery-container {
+    gap: 1.5rem;
+  }
+  .overlay {
+    gap: 1rem;
+  }
+  nav {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 2000px) {
+  .gallery-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
